@@ -1,0 +1,18 @@
+.modalSearch {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modalResult {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 650px;
+}
+
+.songResult {
+    border: 1px solid;
+    padding: 10px;
+}

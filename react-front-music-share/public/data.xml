@@ -1,0 +1,80 @@
+<rss xmlns:maniadb="http://www.maniadb.com/api" version="2.0">
+    <channel>
+        <title>
+            <![CDATA[ Maniadb Open API v0.5 : Search song for "metallica" ]]>
+        </title>
+        <link>www.maniadb.com</link>
+        <description>
+            <![CDATA[ Maniadb Open API v0.5 : Search song for "metallica" ]]>
+        </description>
+        <lastBuildDate>Mon, 30 Oct 2023 22:29:02 +0900</lastBuildDate>
+        <total>10</total>
+        <start>1</start>
+        <display>10</display>
+        <maniadb:urlbase>
+            <![CDATA[ http://www.maniadb.com/album/ ]]>
+        </maniadb:urlbase>
+        <item id="8310331">
+            <title>
+                <![CDATA[ Metallica ]]>
+            </title>
+            <runningtime>
+                <![CDATA[ - ]]>
+            </runningtime>
+            <link>
+                <![CDATA[ http://www.maniadb.com/album/940274/?ss=8310331 ]]>
+            </link>
+            <pubDate>
+                <![CDATA[ Mon, 30 Oct 2023 22:29:02 +0900 ]]>
+            </pubDate>
+            <author>
+                <![CDATA[ maniadb ]]>
+            </author>
+            <description>
+                <![CDATA[ ]]>
+            </description>
+            <guid>
+                <![CDATA[ http://www.maniadb.com/album/940274/?ss=8310331 ]]>
+            </guid>
+            <comments>
+                <![CDATA[ http://www.maniadb.com/album/940274/?ss=8310331#TALK ]]>
+            </comments>
+            <maniadb:album>
+                <title>
+                    <![CDATA[ Black Sheep Wall - I'm Going to Kill Myself (2015) ]]>
+                </title>
+                <release>
+                    <![CDATA[ ]]>
+                </release>
+                <link>
+                    <![CDATA[ http://www.maniadb.com/album/940274 ]]>
+                </link>
+                <image>
+                    <![CDATA[ http://i.maniadb.com/images/album/940/940274_1_f.jpg ]]>
+                </image>
+                <description>
+                    <![CDATA[ ]]>
+                </description>
+            </maniadb:album>
+            <maniadb:artist status="DEPRECATED">
+                <link>
+                    <![CDATA[ www.maniadb.com/artist/411671 ]]>
+                </link>
+                <name>
+                    <![CDATA[ Black Sheep Wall ]]>
+                </name>
+            </maniadb:artist>
+            <maniadb:trackartists>
+                <maniadb:artist id="411671">
+                    <id>
+                        <![CDATA[ 411671 ]]>
+                    </id>
+                    <name>
+                        <![CDATA[ Black Sheep Wall ]]>
+                    </name>
+                </maniadb:artist>
+            </maniadb:trackartists>
+            <maniadb:trackartistlist status="DEPRECATED">
+                <![CDATA[ Black Sheep Wall ]]>
+            </maniadb:trackartistlist>
+        </item>

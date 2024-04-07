@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+.jcCenter {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.writeBoard {
+    width: 80%;
+    height: 60%;
+    background-color: rgb(101, 101, 101);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.artBoard {
+    width: 30%;
+    height: 70%;
+    background-color: white;
+    text-align: center;
+}
+
+.artScene {
+    width: 100%;
+    height: 80%;
+    background-color: aquamarine;
+}
+
+.artSceneBtm {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textBoard {
+    width: 50%;
+    height: 70%;
+    background-color: rgb(204, 204, 204);
+    text-align: center;
+}
+
+.textScene {
+    width: 99%;
+    height: 80%;
+    background-color: rgb(255, 255, 255);
+    resize: none;
+}
+.textSceneBtm {
+    height: 16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputBtn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

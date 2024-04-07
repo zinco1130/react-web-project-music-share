@@ -1,0 +1,182 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "com.zinco.react_back.controller.UserController",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_115906507 { 
+   	label=zinco
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1610398294 { 
+   	label=react_back
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   CommentService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)CommentService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   commentRepository: CommentRepository [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   entityManager: EntityManager [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addComment(comment: Comment)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getCommentsByTabId(tabId: int): List&lt;Comment&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toCommentDto(comment: Comment): CommentDto</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+TabService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TabService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   entityManager: EntityManager [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tabRepository: TabRepository [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getTab(tabId: int): Tab</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTab(uri: String, key: String): Tab</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UserController1916102515[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UserController</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   authenticationManager: AuthenticationManager [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   commentService: CommentService [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   securityContextHolderStrategy: SecurityContextHolderStrategy [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   securityContextRepository: SecurityContextRepository [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tabService: TabService [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   userService: UserService [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ loginUser(loginRequest: LoginRequest, request: HttpServletRequest, response: HttpServletResponse): ResponseEntity&lt;?&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ logoutUser(request: HttpServletRequest, response: HttpServletResponse): ResponseEntity&lt;?&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ registerUser(user: User, request: HttpServletRequest, response: HttpServletResponse): ResponseEntity&lt;?&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UserService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UserService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   entityManager: EntityManager [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   passwordEncoder: PasswordEncoder [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   userRepository: UserRepository [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getUserById(userId: String): User</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loginUser(userId: String): User</TD></TR>
+<TR><TD ALIGN="LEFT" >+ registerUser(user: User): User</TD></TR>
+<TR><TD ALIGN="LEFT" >+ userIdExists(userId: String): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+UserController1916102515 -> CommentService2051811902[label="commentService
+[1]"];
+UserController1916102515 -> TabService2051811902[label="tabService
+[1]"];
+UserController1916102515 -> UserService2051811902[label="userService
+[1]"];
+    
+}
+@enduml

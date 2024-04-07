@@ -1,0 +1,256 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "com.zinco.react_back.controller.ApiController",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_115906507 { 
+   	label=zinco
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1610398294 { 
+   	label=react_back
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   ApiController1916102515[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ApiController</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   commentService: CommentService [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   musicService: MusicService [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   recommendationService: RecommendationService [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   securityContextHolderStrategy: SecurityContextHolderStrategy [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   securityContextRepository: SecurityContextRepository [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tabService: TabService [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   userService: UserService [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addComment(comment: Comment, request: HttpServletRequest, response: HttpServletResponse): ResponseEntity&lt;?&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addMusic(music: Music, request: HttpServletRequest, response: HttpServletResponse): ResponseEntity&lt;?&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ searchMusic(title: String): ResponseEntity&lt;List&lt;Music&gt;&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+CommentService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)CommentService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   commentRepository: CommentRepository [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   entityManager: EntityManager [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addComment(comment: Comment)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getCommentsByTabId(tabId: int): List&lt;Comment&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toCommentDto(comment: Comment): CommentDto</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ManiaDbService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ManiaDbService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   restTemplate: RestTemplate [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- convertToMusicList(maniaDbApiResponse: ManiaDbApiResponse): List&lt;Music&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMusicInfo(musicTitle: String): List&lt;Music&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ parseXml(xmlData: String): ManiaDbApiResponse</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+MusicService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MusicService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   maniaDbService: ManiaDbService [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   musicRepository: MusicRepository [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   recommendRepository: RecommendRepository [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addMusic(music: Music)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ searchMusicByTitle(title: String): List&lt;Music&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toMusicDto(music: Music): MusicDto</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RecommendationService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RecommendationService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   commentRepository: CommentRepository [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   entityManager: EntityManager [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   musicRepository: MusicRepository [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   recommendRepository: RecommendRepository [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- convertToCommentDto(comment: Comment): CommentDto</TD></TR>
+<TR><TD ALIGN="LEFT" >- convertToMusicDto(music: Music): MusicDto</TD></TR>
+<TR><TD ALIGN="LEFT" >+ recommendMusic(recommend: Recommend)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toRecommendationDto(recommend: Recommend): RecommendationDto</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+TabService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TabService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   entityManager: EntityManager [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tabRepository: TabRepository [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getTab(tabId: int): Tab</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTab(uri: String, key: String): Tab</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UserService2051811902[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UserService</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   entityManager: EntityManager [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   passwordEncoder: PasswordEncoder [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   userRepository: UserRepository [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getUserById(userId: String): User</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loginUser(userId: String): User</TD></TR>
+<TR><TD ALIGN="LEFT" >+ registerUser(user: User): User</TD></TR>
+<TR><TD ALIGN="LEFT" >+ userIdExists(userId: String): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+utils2136261242[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)utils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ decodeHtmlEntities(text: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+ApiController1916102515 -> CommentService2051811902[label="commentService
+[1]"];
+ApiController1916102515 -> MusicService2051811902[label="musicService
+[1]"];
+ApiController1916102515 -> RecommendationService2051811902[label="recommendationService
+[1]"];
+ApiController1916102515 -> TabService2051811902[label="tabService
+[1]"];
+ApiController1916102515 -> UserService2051811902[label="userService
+[1]"];
+ManiaDbService2051811902 -> utils2136261242[label="convertToMusicList() -> decodeHtmlEntities()"];
+MusicService2051811902 -> ManiaDbService2051811902[label="maniaDbService
+[0..1]"];
+    
+}
+@enduml
